@@ -7,21 +7,30 @@ function playSound ()
 }
 function findAndChangeLikeButtons ()
 {
+	console.log("findAndChangeLikeButtons");
 	var allButtons = document.getElementsByTagName('BUTTON');
 	var likeClassRegEx = new RegExp(".*like_link( |$)");
-	var likeButtons = [];
 	for (var i=0, l=allButtons.length; i<l; i++)
 	{
 		var button = allButtons[i];
 		console.log(button.className);
-		if (button.className && button.className.match(likeClassRegEx))
+		if (!button.iinyaListenerAdded && button.className && button.className.match(likeClassRegEx))
 		{
-			button.style.border = "2px solid red";
-			likeButtons.push(button);
-			button.addEventListener ("click", playSound, false);
+			applyButtonExtra (button);
 		}
 	}
 
+}
+function applyButtonExtra (button)
+{
+	button.addEventListener ("click", playSound, false);
+	var spans = button.getElementsByTagName("SPAN");
+	for (var i=0, l=spans.length; i<l; i++)
+	{
+		var span = spans[i];
+		span.innerHTML = span.innerHTML.replace("いいね", "いいにゃ");
+	}
+	button.iinyaListenerAdded = true;
 }
 function uiTest ()
 {
@@ -39,3 +48,4 @@ function uiTest ()
 	document.body.appendChild(button);
 }
 findAndChangeLikeButtons();
+window.setInterval(findAndChangeLikeButtons, 2000);
