@@ -17,6 +17,7 @@
       ],
       "js" : 
       [
+        "src/player.js",
         "src/contentscript.js"
         ],
       "run_at" : "document_idle",
