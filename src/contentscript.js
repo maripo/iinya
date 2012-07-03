@@ -5,6 +5,24 @@ function playSound ()
 {
 	audio.play();
 }
+function findAndChangeLikeButtons ()
+{
+	var allButtons = document.getElementsByTagName('BUTTON');
+	var likeClassRegEx = new RegExp(".*like_link( |$)");
+	var likeButtons = [];
+	for (var i=0, l=allButtons.length; i<l; i++)
+	{
+		var button = allButtons[i];
+		console.log(button.className);
+		if (button.className && button.className.match(likeClassRegEx))
+		{
+			button.style.border = "2px solid red";
+			likeButtons.push(button);
+			button.addEventListener ("click", playSound, false);
+		}
+	}
+
+}
 function uiTest ()
 {
 	var button = document.createElement('INPUT');
@@ -20,4 +38,4 @@ function uiTest ()
 	button.addEventListener ("click", playSound, false);
 	document.body.appendChild(button);
 }
-uiTest();
+findAndChangeLikeButtons();
