@@ -28,7 +28,7 @@ function applyButtonExtra (button)
 	for (var i=0, l=spans.length; i<l; i++)
 	{
 		var span = spans[i];
-		span.innerHTML = span.innerHTML.replace("いいね", "いいにゃ");
+		span.innerHTML = span.innerHTML.replace("いいね", "いいニャ");
 	}
 	button.iinyaListenerAdded = true;
 }
