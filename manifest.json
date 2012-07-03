@@ -1,0 +1,33 @@
+ {
+  "name" : "ii-nya",
+  "version" : "1.0",
+  "default_locale": "en",
+  "description" : "__MSG_extDescription__",
+  "browser_action": {
+      "default_title": "Preferences",
+      "default_icon": "img/icon32.png",
+      "popup": "index.html"
+  },
+  "options_page":"pref/index.html",
+  "content_scripts" : [
+    {
+      "matches" : [
+        "http://www.facebook.com/*",
+        "https://www.facebook.com/*"
+      ],
+      "js" : 
+      [
+        "src/contentscript.js"
+        ],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "permissions" : []
+  ,
+  "icons" : {
+    "128" : "img/icon128.png",
+    "48" : "img/icon48.png",
+    "32" : "img/icon32.png"
+  }
+}
