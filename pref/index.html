@@ -3,9 +3,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script type="text/javascript" src="../src/player.js"></script>
+		<script type="text/javascript" src="../src/config.js"></script>
 		<title>Iinya</title>
 	</head>
-	<body>
+	<body onload="initConfig()">
 		<div>
 			<input type="button" value="にゃー" onclick="playSound()"/>
 			<div>
@@ -21,6 +22,10 @@
 				<li>Facebook: <a href="https://www.facebook.com/maripo">Mariko GODA @Facebook</a></li>
 				<li>Mail: goda[DOT]mariko[AT]gmail[DOT]com</li>
 			</ul>
+			<div>
+				<input type="file" id="fileSelector"/>
+			</div>
+			
 		</div>
 	</body>
 </html>
