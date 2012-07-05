@@ -2,7 +2,10 @@
 	"extLocale": {
 		"message": "ja"
 	},
+	"extTitle": {
+		"message": "いいニャ"
+	},
 	"extDescription": {
-		"message": "Facebookの「いいね」ボタンでにゃーにゃーにゃー"
+		"message": "Facebookの「いいね」ボタンが「いいニャ」になります。押すとニャーと鳴きます。"
 	}
 }

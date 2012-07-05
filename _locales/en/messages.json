@@ -2,6 +2,9 @@
 	"extLocale": {
 		"message": "en"
 	},
+	"extTitle": {
+		"message": "ii-nya"
+	},
 	"extDescription": {
 		"message": "Kittens live in Like buttons!"
 	}
