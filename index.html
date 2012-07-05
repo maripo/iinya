@@ -3,14 +3,38 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script type="text/javascript" src="src/player.js"></script>
+		<style type="text/css">
+h1 {
+	background-image:url(img/icon32.png);
+	background-repeat:no-repeat;
+	text-indent:32px;
+	line-height:32px;
+	height:32px;
+	color:#444;
+	font-family:sans-serif;
+}
+		</style>
 		<title>Iinya</title>
 	</head>
-	<body>
+	<body style="width:320px;">
+		<h1 style="">
+			いいにゃ
+		</h1>
+		
 		<div>
-		<input type="button" value="にゃー" onclick="playSound()"/>
-		<div>
-			<img src="img/roux.jpg"/>
+			<input type="button" value="にゃー (ランダム)" onclick="playSound()"/>
 		</div>
+		<div>
+			<input type="button" value="にゃー 1" onclick="playSoundAt(0)"/>
+			<span class="voice_actor">CV: <a href="https://www.facebook.com/RouxTheCat" target="_blank">ルー</a></span>
+		</div>
+		<div>
+			<input type="button" value="にゃー 2" onclick="playSoundAt(2)"/>
+			<span class="voice_actor">CV: <a href="https://www.facebook.com/dora.the.kitten" target="_blank">ドーラ</a></span>
+		</div>
+		<div>
+			<input type="button" value="にゃー 3" onclick="playSoundAt(1)"/>
+			<span class="voice_actor">CV: <a href="https://www.facebook.com/dora.the.kitten" target="_blank">ドーラ</a></span>
 		</div>
 	</body>
 </html>
