@@ -92,11 +92,12 @@ function readSoundDirectory ()
 							console.log(key + "->" + file[key]);
 						}
 						var soundEffect = new SoundEffect({
-							url:file.toURL(),
-							label:file.name,
-							date:new Date(),
+							url: file.toURL(),
+							label: file.name,
+							date: new Date(),
 							volume: DEFAULT_VOLUME_PERCENTAGE,
-							enabled: true
+							enabled: true,
+							isBuiltIn: false
 						});
 						var soundEditor = new SoundEditor(soundEffect);
 						document.getElementById("audio_list").appendChild(soundEditor.getLiElement());
