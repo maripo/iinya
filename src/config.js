@@ -95,7 +95,8 @@ function readSoundDirectory ()
 							url:file.toURL(),
 							label:file.name,
 							date:new Date(),
-							volume: DEFAULT_VOLUME_PERCENTAGE
+							volume: DEFAULT_VOLUME_PERCENTAGE,
+							enabled: true
 						});
 						var soundEditor = new SoundEditor(soundEffect);
 						document.getElementById("audio_list").appendChild(soundEditor.getLiElement());

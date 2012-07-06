@@ -4,6 +4,7 @@ var SoundEffect = function (options)
 	this.label = options.label;
 	this.date = options.date;
 	this.volume = options.volume; //Percentage
+	this.enabled = options.enabled;
 };
 
 
