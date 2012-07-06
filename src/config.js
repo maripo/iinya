@@ -1,6 +1,78 @@
-
 var AUDIO_DATA_DIR = 'data';
 var DEFAULT_VOLUME_PERCENTAGE = 100;
+
+var SoundEditor = function (sound) 
+{
+	this.sound = sound;
+};
+// Create UI elements
+SoundEditor.prototype.getLiElement = function ()
+{
+	var li = document.createElement("LI");
+	li.appendChild(this.getNameSection());
+	li.appendChild(this.getPlayButton());
+	li.appendChild(this.getRenameButton());
+	li.appendChild(this.getDeleteButton());
+	return li;
+};
+SoundEditor.prototype.getNameSection = function ()
+{
+	var div = document.createElement("DIV");
+	div.innerHTML = this.sound.label;
+	return div;
+};
+SoundEditor.prototype.getPlayButton = function ()
+{
+	var a = document.createElement("A");
+	a.innerHTML = "Play";
+	a.href = "#";
+	a.onclick = this.getPlayAction();
+	return a;
+};
+SoundEditor.prototype.getRenameButton = function ()
+{
+	var a = document.createElement("A");
+	a.innerHTML = "Rename";
+	a.href = "#";
+	a.onclick = this.getRenameAction();
+	return a;
+};
+
+SoundEditor.prototype.getDeleteButton = function ()
+{
+	var a = document.createElement("A");
+	a.innerHTML = "Delete";
+	a.href = "#";
+	a.onclick = this.getDeleteAction();
+	return a;
+};
+
+// Actions
+SoundEditor.prototype.getPlayAction = function ()
+{
+	var self = this;
+	return function (event)
+	{
+		self.sound.play();
+	}
+};
+SoundEditor.prototype.getRenameAction = function ()
+{
+	var self = this;
+	return function (event)
+	{
+		alert("TODO rename");
+	}
+};
+SoundEditor.prototype.getDeleteAction = function ()
+{
+	var self = this;
+	return function (event)
+	{
+		alert("TODO delete");
+	}
+};
+
 function readSoundDirectory ()
 {
 	webkitRequestFileSystem(PERSISTENT, 1024*1024, function(fileSystem)
@@ -36,39 +108,6 @@ function readSoundDirectory ()
 	});
 
 }
-var SoundEditor = function (sound) 
-{
-	this.sound = sound;
-};
-SoundEditor.prototype.getLiElement = function ()
-{
-	var li = document.createElement("LI");
-	li.appendChild(this.getNameSection());
-	li.appendChild(this.getPlayButton());
-	return li;
-};
-SoundEditor.prototype.getNameSection = function ()
-{
-	var div = document.createElement("DIV");
-	div.innerHTML = this.sound.label;
-	return div;
-};
-SoundEditor.prototype.getPlayButton = function ()
-{
-	var a = document.createElement("A");
-	a.innerHTML = "Play";
-	a.href = "#";
-	a.onclick = this.getPlayAction();
-	return a;
-};
-SoundEditor.prototype.getPlayAction = function ()
-{
-	var self = this;
-	return function (event)
-	{
-		self.sound.play();
-	}
-};
 var REGEX_FILE_TYPE_AUDIO = new RegExp("audio\\/.*");
 function readFile (event)
 {
