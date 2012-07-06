@@ -1,5 +1,6 @@
 
 var AUDIO_DATA_DIR = 'data';
+var DEFAULT_VOLUME_PERCENTAGE = 100;
 function readSoundDirectory ()
 {
 	webkitRequestFileSystem(PERSISTENT, 1024*1024, function(fileSystem)
@@ -18,8 +19,14 @@ function readSoundDirectory ()
 						{
 							console.log(key + "->" + file[key]);
 						}
-						var sound = new Sound(files[i]);
-						document.getElementById("audio_list").appendChild(sound.getLiElement());
+						var soundEffect = new SoundEffect({
+							url:file.toURL(),
+							label:file.name,
+							date:new Date(),
+							volume: DEFAULT_VOLUME_PERCENTAGE
+						});
+						var soundEditor = new SoundEditor(soundEffect);
+						document.getElementById("audio_list").appendChild(soundEditor.getLiElement());
 					}
 				}
 			},
@@ -29,36 +36,38 @@ function readSoundDirectory ()
 	});
 
 }
-var Sound = function (file) 
+var SoundEditor = function (sound) 
 {
-	this.name = file.name;
-	this.url = file.toURL();
+	this.sound = sound;
 };
-Sound.prototype.getLiElement = function ()
+SoundEditor.prototype.getLiElement = function ()
 {
 	var li = document.createElement("LI");
-	var a = document.createElement("A");
-	a.innerHTML = this.name;
-	a.href = "#";
-	a.onclick = this.getPlayAction();
-	li.appendChild(a);
+	li.appendChild(this.getNameSection());
+	li.appendChild(this.getPlayButton());
 	return li;
 };
-Sound.prototype.getPlayAction = function ()
+SoundEditor.prototype.getNameSection = function ()
+{
+	var div = document.createElement("DIV");
+	div.innerHTML = this.sound.label;
+	return div;
+};
+SoundEditor.prototype.getPlayButton = function ()
+{
+	var a = document.createElement("A");
+	a.innerHTML = "Play";
+	a.href = "#";
+	a.onclick = this.getPlayAction();
+	return a;
+};
+SoundEditor.prototype.getPlayAction = function ()
 {
 	var self = this;
 	return function (event)
 	{
-		self.play();
+		self.sound.play();
 	}
-};
-Sound.prototype.play = function ()
-
-{
-		console.log("play " + this.url);
-		var audio = new Audio(this.url);
-		audio.play();
-
 };
 var REGEX_FILE_TYPE_AUDIO = new RegExp("audio\\/.*");
 function readFile (event)
