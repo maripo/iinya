@@ -12,7 +12,7 @@ function readConfig()
 			for (var i=0; i<all.length; i++)
 			{
 				var audio = all[i];
-				console.log("name=" + audio.url);
+				console.log("name=" + audio.url + ", enabled=" + audio.enabled);
 				if (audio.enabled)
 					audios.push(new SoundEffect(audio));
 			}
