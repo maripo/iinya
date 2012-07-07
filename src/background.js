@@ -44,14 +44,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab)
 );
 function getPlayRandomSoundAndRegisterCallback (tabId)
 {
-	return function ()
+	return function (param)
 	{
 		console.log("tabId=" + tabId);
-		playSound();
-		chrome.tabs.sendRequest(tabId,
+		if ("play"==param.command)
 		{
-		},
-		getPlayRandomSoundAndRegisterCallback(tabId));
+			playSound();
+			chrome.tabs.sendRequest(tabId,
+			{
+			},
+			getPlayRandomSoundAndRegisterCallback(tabId));
+		}
 	}
 }
 function reload()

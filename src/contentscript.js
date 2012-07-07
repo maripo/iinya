@@ -28,7 +28,6 @@ function applyButtonExtra (button)
 
 function uiTest ()
 {
-	alert("uiTest");
 	var button = document.createElement('INPUT');
 	button.type = "BUTTON";
 	with (button.style)
@@ -45,7 +44,7 @@ function uiTest ()
 var bgCallback = null;
 function playSoundBackground ()
 {
-	bgCallback();
+	bgCallback({command:"play"});
 ;}
 
 chrome.extension.onRequest.addListener
@@ -57,4 +56,5 @@ chrome.extension.onRequest.addListener
 );
 audios = SoundEffect.getDefaultSoundEffects();
 findAndChangeLikeButtons();
+uiTest();
 window.setInterval(findAndChangeLikeButtons, 2000);
