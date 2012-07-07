@@ -56,5 +56,5 @@ chrome.extension.onRequest.addListener
 );
 audios = SoundEffect.getDefaultSoundEffects();
 findAndChangeLikeButtons();
-uiTest();
+//uiTest();
 window.setInterval(findAndChangeLikeButtons, 2000);

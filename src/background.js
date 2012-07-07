@@ -46,7 +46,6 @@ function getPlayRandomSoundAndRegisterCallback (tabId)
 {
 	return function (param)
 	{
-		console.log("tabId=" + tabId);
 		if ("play"==param.command)
 		{
 			playSound();
