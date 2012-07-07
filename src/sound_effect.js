@@ -15,6 +15,7 @@ SoundEffect.prototype.play = function ()
 {
 	console.log("play " + this.url);
 	var audio = new Audio(this.url);
+	audio.volume = Player.getMasterVolume()/100.0;
 	audio.play();
 
 };

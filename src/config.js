@@ -296,9 +296,18 @@ function renderListAndSave (soundEffects)
 }
 
 var fileSelector;
+var volumeRange;
 function initConfig ()
 {
 	fileSelector = document.getElementById('fileSelector');
 	fileSelector.addEventListener('change', readFile);
 	readSoundDirectory(renderList);
+	volumeRange = document.getElementById("masterVolume");
+	volumeRange.value = Player.getMasterVolume();
+	volumeRange.addEventListener("change", onVolumeChange, false);
+}
+
+function onVolumeChange (sender)
+{
+	Player.setMasterVolume (volumeRange.value);
 }

@@ -11,14 +11,18 @@
 	</head>
 	<body onload="initConfig()">
 		<h1>
-			いいにゃ
+			いいニャ 詳細設定
 		</h1>
 		<h2>
-			音声
+			音声設定
 		</h2>
-		<p>
+		<div>
+			ボリューム: <input type="range" id="masterVolume" min="0" max="100" value="100" />
+		</div>
+		
+		<div>
 			チェックを入れたものがランダムで再生されます。
-		</p>
+		</div>
 		<ul id="audio_list">
 		</ul>
 		<div style="line-height:32px; font-size:80%;">
