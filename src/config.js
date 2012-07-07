@@ -82,7 +82,9 @@ SoundEditor.prototype.getNameSection = function ()
 SoundEditor.prototype.getPlayButton = function ()
 {
 	var a = document.createElement("A");
-	a.innerHTML = "Play";
+	var icon = document.createElement("IMG");
+	icon.src = "../img/icon_play.png";
+	a.appendChild(icon);
 	a.href = "#";
 	a.onclick = this.getPlayAction();
 	return a;
@@ -90,7 +92,9 @@ SoundEditor.prototype.getPlayButton = function ()
 SoundEditor.prototype.getRenameButton = function ()
 {
 	var a = document.createElement("A");
-	a.innerHTML = "Rename";
+	var icon = document.createElement("IMG");
+	icon.src = "../img/icon_edit.png";
+	a.appendChild(icon);
 	a.href = "#";
 	a.onclick = this.getRenameAction();
 	return a;
@@ -99,7 +103,9 @@ SoundEditor.prototype.getRenameButton = function ()
 SoundEditor.prototype.getDeleteButton = function ()
 {
 	var a = document.createElement("A");
-	a.innerHTML = "Delete";
+	var icon = document.createElement("IMG");
+	icon.src = "../img/icon_delete.png";
+	a.appendChild(icon);
 	a.href = "#";
 	a.onclick = this.getDeleteAction();
 	return a;
