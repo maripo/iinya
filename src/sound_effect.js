@@ -52,7 +52,10 @@ SoundEffect.getDefaultSoundEffects = function ()
 		SoundEffect.createBuiltInSoundEffects("にゃー2","audio/dora.mp3"),
 		SoundEffect.createBuiltInSoundEffects("にゃー3","audio/dora2.mp3"),
 		SoundEffect.createBuiltInSoundEffects("にゃー4","audio/gustav.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー5","audio/gustav2.mp3")
+		SoundEffect.createBuiltInSoundEffects("にゃー5","audio/gustav2.mp3"),
+		SoundEffect.createBuiltInSoundEffects("にゃー6","audio/gabu0.mp3"),
+		SoundEffect.createBuiltInSoundEffects("にゃー7","audio/gabu1.mp3"),
+		SoundEffect.createBuiltInSoundEffects("にゃー8","audio/gabu2.mp3")
 	];
 };
 SoundEffect.createBuiltInSoundEffects = function (name, extensionPath)
