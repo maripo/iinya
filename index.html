@@ -12,6 +12,9 @@
 			いいにゃ
 		</h1>
 		<div>
+			ボリューム: <input type="range" id="masterVolume" min="0" max="100" value="100" />
+		</div>
+		<div>
 			<input type="button" value="にゃー (ランダム)" onclick="playSound()"/>
 		</div>
 		<div>
@@ -47,7 +50,7 @@
 			<span class="voice_actor">CV: <a href="https://twitter.com/ntee/status/212974849348485120" target="_blank">ガブ(♀)</a></span>
 		</div>
 		<div>
-			<a href="pref/index.html" target="_blank">Preferences</a>
+			<a href="pref/index.html" target="_blank">詳細設定</a>
 		</div>
 		<script type="text/javascript">
 			audios = SoundEffect.getDefaultSoundEffects();
