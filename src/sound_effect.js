@@ -27,9 +27,9 @@ var STORAGE_KEY_SOUNDS = "sound";
 // JSON save & load
 SoundEffect.saveAll = function ()
 {
-	console.log("SoundEffect.saveAll");
 	console.log(JSON.stringify(SoundEffect.list));
 	localStorage[STORAGE_KEY_SOUNDS] = JSON.stringify(SoundEffect.list);
+	chrome.extension.getBackgroundPage().reload();
 };
 SoundEffect.loadAll = function ()
 {

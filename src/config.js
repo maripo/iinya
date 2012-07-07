@@ -223,7 +223,7 @@ function writeFile (fileName, fileType, readerEvent)
 					writer.onwriteend = function(entry)
 					{
 						console.log("write completed. " + fileEntry.toURL());
-						readSoundDirectory(renderList);
+						readSoundDirectory(renderListAndSave);
 					};
 					writer.onerror = function(error)
 					{
@@ -237,6 +237,11 @@ function writeFile (fileName, fileType, readerEvent)
 		},
 		onFileError);
 	});
+}
+function renderListAndSave (soundEffects) 
+{
+	renderList(soundEffects);
+	SoundEffect.saveAll();
 }
 
 var fileSelector;

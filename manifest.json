@@ -27,7 +27,7 @@
       "all_frames" : false
     }
   ],
-  "permissions" : ["unlimitedStorage"]
+  "permissions" : ["unlimitedStorage", "tabs"]
   ,
   "icons" : {
     "128" : "img/icon128.png",
