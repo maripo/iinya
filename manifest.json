@@ -1,6 +1,6 @@
  {
   "name" : "__MSG_extTitle__",
-  "version" : "1.1.2",
+  "version" : "2.0",
   "default_locale": "en",
   "description" : "__MSG_extDescription__",
   "browser_action": {
@@ -9,6 +9,7 @@
       "popup": "index.html"
   },
   "options_page":"pref/index.html",
+  "background_page":"background.html",
   "content_scripts" : [
     {
       "matches" : [
@@ -17,6 +18,8 @@
       ],
       "js" : 
       [
+	"src/file_rw.js",
+	"src/sound_effect.js",
         "src/player.js",
         "src/contentscript.js"
         ],
@@ -24,7 +27,7 @@
       "all_frames" : false
     }
   ],
-  "permissions" : ["unlimitedStorage"]
+  "permissions" : ["unlimitedStorage", "tabs"]
   ,
   "icons" : {
     "128" : "img/icon128.png",

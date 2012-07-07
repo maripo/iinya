@@ -13,3 +13,48 @@ h1 {
 span.voice_actor {
 	font-size:80%;
 }
+/* Configuration */
+
+/* Audio list */
+#audio_list {
+	padding:0px;
+	margin:0px;
+	width:480px;
+}
+#audio_list li {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	position:relative;
+	border-top:1px solid #f8f8f8;
+	background-color:#f0f0f0;
+	border-bottom:1px solid #d8d8d8;
+	height:28px;
+	clear:left;
+}
+#audio_list li div.section{
+	float:left;
+	height:inherit;
+	line-height:28px;
+}
+#audio_list li div.checkSection{
+	width:72px;
+	text-align:center;
+}
+#audio_list li div.nameSection{
+	width:280px;
+}
+#audio_list li div.buttonSection{
+	width:100px;
+	font-size:80%;
+	text-align:right;
+}
+#audio_list li div.section a{
+	margin-left:4px;
+	height:inherit;
+	vertical-align:middle;
+}
+#audio_list li div.section a img{
+	margin-right:4px;
+	vertical-align:middle;
+}

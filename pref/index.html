@@ -3,6 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<script type="text/javascript" src="../src/player.js"></script>
+		<script type="text/javascript" src="../src/sound_effect.js"></script>
+		<script type="text/javascript" src="../src/file_rw.js"></script>
 		<script type="text/javascript" src="../src/config.js"></script>
 		<link rel="stylesheet" type="text/css" href="../style/style.css"/>
 		<title>Iinya</title>
@@ -11,24 +13,32 @@
 		<h1>
 			いいにゃ
 		</h1>
-		<div>
-			<input type="button" value="にゃー" onclick="playSound()"/>
+		<h2>
+			音声
+		</h2>
+		<p>
+			チェックを入れたものがランダムで再生されます。
+		</p>
+		<ul id="audio_list">
+		</ul>
+		<div style="line-height:32px; font-size:80%;">
+			ディスク上の音声ファイルを使う <input type="file" id="fileSelector"/>
 			<div>
-				<img src="../img/roux.jpg"/>
-				<div>
-					Default voice : Roux (A male cat)<br/>
-					Facebook Page: <a href="https://www.facebook.com/RouxTheCat">Roux the Cat @Facebook</a>
-				</div>
+				(1MB未満)
 			</div>
+			
+		</div>
+		
+		<div>
 			<h2>Contact</h2>
 			<ul>
 				<li>Twitter: <a href="http://twitter.com/MaripoGoda">MaripoGoda</a></li>
 				<li>Facebook: <a href="https://www.facebook.com/maripo">Mariko GODA @Facebook</a></li>
 				<li>Mail: goda[DOT]mariko[AT]gmail[DOT]com</li>
-				<li>Github: <a href="https://github.com/maripo/iinya>maripo/iinya</a></li>
+				<li>Github: <a href="https://github.com/maripo/iinya">maripo/iinya</a></li>
 			</ul>
-			<div style="display:none">
-				<input type="file" id="fileSelector"/>
+			<div>
+				<img src="../img/roux.jpg"/>
 			</div>
 			
 		</div>
