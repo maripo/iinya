@@ -18,12 +18,6 @@ SoundEffect.prototype.play = function ()
 
 };
 
-
-SoundEffect.prototype.save = function ()
-{
-
-};
-
 SoundEffect.prototype.delete = function ()
 {
 
@@ -47,7 +41,6 @@ SoundEffect.loadAll = function ()
 	{
 		console.log(ex);
 	}
-	alert(SoundEffect.importedList.length);
 };
 SoundEffect.importedList = [];
 
@@ -70,4 +63,22 @@ SoundEffect.createBuiltInSoundEffects = function (name, extensionPath)
 		isBuiltIn: true,
 		enabled: true
 	});
+};
+
+SoundEffect.applySavedPreferences = function (soundEffects) 
+{
+	SoundEffect.loadAll();
+	for (var i=0; i<soundEffects.length; i++)
+	{
+		var soundEffect = soundEffects[i];
+		for (j=0; j<SoundEffect.importedList.length; j++) 
+		{
+			var pref = SoundEffect.importedList[j];
+			if (soundEffect.url == pref.url)
+			{
+				soundEffect.name = pref.name;
+				soundEffect.enabled = pref.enabled;
+			}
+		}
+	}
 };

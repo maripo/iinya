@@ -1,4 +1,4 @@
-var AUDIO_DATA_DIR = 'data';
+
 var SoundEditor = function (sound) 
 {
 	this.sound = sound;
@@ -102,7 +102,6 @@ SoundEditor.prototype.getToggleEnabledAction = function ()
 	var self = this;
 	return function (event)
 	{
-		alert("TODO toggle checked=" + self.checkbox.checked);
 		self.sound.enabled = self.checkbox.checked;
 		SoundEffect.saveAll();
 	}
@@ -158,43 +157,10 @@ SoundEditor.prototype.getDeleteAction = function ()
 	}
 };
 
-function readSoundDirectory ()
-{
-	webkitRequestFileSystem(PERSISTENT, 1024*1024, function(fileSystem)
-	{
-		fileSystem.root.getDirectory(AUDIO_DATA_DIR, {create:true}, function(directory)
-		{
-			directory.createReader().readEntries (function(files) 
-			{
-				document.getElementById("audio_list").innerHTML = '';
-				if (files.length)
-				{
-					var soundEffects = SoundEffect.getDefaultSoundEffects();
-					for (var i=0; i<files.length; i++)
-					{
-						var file = files[i];
-						var soundEffect = new SoundEffect({
-							url: file.toURL(),
-							name: file.name,
-							date: new Date(),
-							volume: DEFAULT_VOLUME_PERCENTAGE,
-							enabled: true,
-							isBuiltIn: false
-						});
-						soundEffects.push(soundEffect);
-						
-					}
-					renderList(soundEffects);
-				}
-			},
-			onFileError)
-		},
-		onFileError)
-	});
-}
 
 function renderList (soundEffects)
 {	
+	document.getElementById("audio_list").innerHTML = '';
 	SoundEffect.list = soundEffects;
 	for (var i=0; i<soundEffects.length; i++)
 	{
@@ -257,7 +223,7 @@ function writeFile (fileName, fileType, readerEvent)
 					writer.onwriteend = function(entry)
 					{
 						console.log("write completed. " + fileEntry.toURL());
-						readSoundDirectory();
+						readSoundDirectory(renderList);
 					};
 					writer.onerror = function(error)
 					{
@@ -273,19 +239,10 @@ function writeFile (fileName, fileType, readerEvent)
 	});
 }
 
-function onFileError (error)
-{
-	console.log("Error occured. " + error);
-	for (var key in error)
-	{
-		console.log(key + "=" + error[key]);
-	}
-}
 var fileSelector;
 function initConfig ()
 {
 	fileSelector = document.getElementById('fileSelector');
 	fileSelector.addEventListener('change', readFile);
-	SoundEffect.loadAll();
-	readSoundDirectory();
+	readSoundDirectory(renderList);
 }

@@ -8,7 +8,6 @@ function findAndChangeLikeButtons ()
 	for (var i=0, l=allButtons.length; i<l; i++)
 	{
 		var button = allButtons[i];
-		console.log(button.className);
 		if (!button.iinyaListenerAdded && button.className && button.className.match(likeClassRegEx))
 		{
 			applyButtonExtra (button);
