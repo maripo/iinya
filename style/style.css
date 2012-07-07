@@ -14,9 +14,12 @@ span.voice_actor {
 	font-size:80%;
 }
 /* Configuration */
+
+/* Audio list */
 #audio_list {
 	padding:0px;
 	margin:0px;
+	width:480px;
 }
 #audio_list li {
 	list-style-type:none;
@@ -26,7 +29,25 @@ span.voice_actor {
 	border-top:1px solid #f8f8f8;
 	background-color:#f0f0f0;
 	border-bottom:1px solid #d8d8d8;
+	height:32px;
+	clear:left;
 }
-#audio_list li: hover {
-	background-color:#ffd;
+#audio_list li div.section{
+	float:left;
+	height:inherit;
+	line-height:32px;
+}
+#audio_list li div.checkSection{
+	width:80px;
+	text-align:center;
+}
+#audio_list li div.nameSection{
+	width:280px;
+}
+#audio_list li div.buttonSection{
+	width:100px;
+	font-size:80%;
+}
+#audio_list li div.buttonSection a{
+	margin-right:4px;
 }

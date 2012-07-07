@@ -19,24 +19,34 @@ SoundEditor.prototype.getLiElement = function ()
 	var li = document.createElement("LI");
 	li.appendChild(this.getCheckbox());
 	li.appendChild(this.getNameSection());
-	li.appendChild(this.getPlayButton());
-	li.appendChild(this.getRenameButton());
-	li.appendChild(this.getDeleteButton());
+	li.appendChild(this.getButtonSection());
 	return li;
+};
+SoundEditor.prototype.getButtonSection = function ()
+{
+	var div = document.createElement("DIV");
+	div.className = "buttonSection section"
+	div.appendChild(this.getRenameButton());
+	div.appendChild(this.getDeleteButton());
+	return div;
 };
 SoundEditor.prototype.getCheckbox = function ()
 {
+	var div = document.createElement("DIV");
+	div.className = "checkSection section";
 	var checkbox = document.createElement("INPUT");
 	checkbox.type = "checkbox";
 	checkbox.checked = this.sound.enabled;
 	this.checkbox = checkbox;
 	this.checkbox.onclick = this.getToggleEnabledAction();
-	return checkbox;
+	div.appendChild(checkbox);
+	div.appendChild(this.getPlayButton());
+	return div;
 };
 SoundEditor.prototype.getNameSection = function ()
 {
 	var div = document.createElement("DIV");
-	div.className = "nameSection";
+	div.className = "nameSection section";
 	var nameLabel = document.createElement("DIV");
 	nameLabel.innerHTML = this.sound.name;
 	this.nameLabel = nameLabel;
