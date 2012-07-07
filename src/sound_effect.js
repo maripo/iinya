@@ -7,6 +7,7 @@ var SoundEffect = function (options)
 	this.volume = options.volume; //Percentage
 	this.enabled = options.enabled;
 	this.isBuiltIn = options.isBuiltIn;
+	this.fileName = options.fileName;
 };
 
 
@@ -61,7 +62,8 @@ SoundEffect.createBuiltInSoundEffects = function (name, extensionPath)
 		url:chrome.extension.getURL(extensionPath),
 		volume: DEFAULT_VOLUME_PERCENTAGE,
 		isBuiltIn: true,
-		enabled: true
+		enabled: true,
+		fileName: extensionPath
 	});
 };
 

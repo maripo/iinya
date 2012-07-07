@@ -29,13 +29,13 @@ span.voice_actor {
 	border-top:1px solid #f8f8f8;
 	background-color:#f0f0f0;
 	border-bottom:1px solid #d8d8d8;
-	height:32px;
+	height:28px;
 	clear:left;
 }
 #audio_list li div.section{
 	float:left;
 	height:inherit;
-	line-height:32px;
+	line-height:28px;
 }
 #audio_list li div.checkSection{
 	width:72px;

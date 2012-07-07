@@ -19,7 +19,8 @@ SoundEditor.prototype.getLiElement = function ()
 	var li = document.createElement("LI");
 	li.appendChild(this.getCheckbox());
 	li.appendChild(this.getNameSection());
-	li.appendChild(this.getButtonSection());
+	if (!this.sound.isBuiltIn)
+		li.appendChild(this.getButtonSection());
 	return li;
 };
 SoundEditor.prototype.getButtonSection = function ()
@@ -145,8 +146,12 @@ SoundEditor.prototype.getSaveNameAction = function ()
 	var self = this;
 	return function (event)
 	{
-		self.sound.name = self.nameEdit.value;
-		console.log("SoundEditor.prototype.getSaveNameAction TODO validation");
+		if (self.nameEdit.value.length<1)
+		{
+			alert("何か入れてください。");
+			return;
+		}
+		self.sound.name = self.nameEdit.value
 		SoundEffect.saveAll();
 		self.nameLabel.innerHTML = self.sound.name;
 		self.nameLabel.style.display = 'block';
@@ -169,10 +174,35 @@ SoundEditor.prototype.getDeleteAction = function ()
 	var self = this;
 	return function (event)
 	{
-		alert("TODO delete");
+		if (window.confirm("本当に削除してよろしいですか?")) 
+		{
+			deleteFile(self.sound);
+		}
 	}
 };
 
+function deleteFile (sound)
+{
+	var fileName = sound.fileName;
+	webkitRequestFileSystem(PERSISTENT, 1024*1024, function(fileSystem)
+	{
+		fileSystem.root.getDirectory(AUDIO_DATA_DIR, {create:true}, function(directory)
+		{
+			directory.getFile(fileName, {create:true}, function(fileEntry)
+			{
+				console.log(fileEntry.toURL());
+				fileEntry.remove(function()
+				{
+					alert("削除しました");
+					readSoundDirectory(renderListAndSave);
+				}, 
+				onFileError);
+			}, 
+			onFileError);
+		},
+		onFileError);
+	});
+};
 
 function renderList (soundEffects)
 {	
@@ -185,6 +215,7 @@ function renderList (soundEffects)
 	}
 }
 var REGEX_FILE_TYPE_AUDIO = new RegExp("audio\\/.*");
+var SIZE_LIMIT = 1024 * 1024;
 function readFile (event)
 {
 	var file = event.target.files[0];
@@ -194,15 +225,19 @@ function readFile (event)
 		console.log(key + "=" + file[key]);
 	}
 	var isAudioFile = file.type && file.type.match(REGEX_FILE_TYPE_AUDIO);
-	if (isAudioFile)
+	if (!isAudioFile)
+	{
+		alert("音声ファイルではないようです。");
+	}
+	else if (file.size > SIZE_LIMIT)
+	{
+		alert("ファイルサイズが大きすぎます。1MB未満のファイルにしてください。");
+	}
+	else
 	{
 		var reader = new FileReader();
 		reader.onload = getOnReadCallback (file.name, file.type);
 		reader.readAsArrayBuffer(file);
-	}
-	else
-	{
-		alert("音声ファイルではないようです。");
 	}
 }
 function getOnReadCallback (fileName, fileType)

@@ -29,12 +29,13 @@ function readConfig()
 }
 readConfig();
 
-var URL_REGEX = new RegExp("http(s|)://www\\.facebook\\.com($|/)");
+var URL_REGEX = new RegExp("http(s|)://www\\.facebook\\.com");
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab)
 	{
 		if (tab.url && tab.url.match(URL_REGEX) && changeInfo.status == "complete")
 		{
+			console.log("Send request to content script.");
 			chrome.tabs.sendRequest(tabId,
 			{
 			},
@@ -46,7 +47,7 @@ function getPlayRandomSoundAndRegisterCallback (tabId)
 {
 	return function (param)
 	{
-		if ("play"==param.command)
+		if (param && "play"==param.command)
 		{
 			playSound();
 			chrome.tabs.sendRequest(tabId,
