@@ -1,0 +1,4 @@
+initIndex ()
+{
+	audios = SoundEffect.getDefaultSoundEffects();
+}
