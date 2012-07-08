@@ -1,5 +1,12 @@
 // mew mew mew
 var iframeContainer = document.createElement("DIV");
+with (iframeContainer.style)
+{
+	width = "1px";
+	height = "1px";
+	overflow = "hidden";
+	opacity = 0;
+}
 document.body.appendChild(iframeContainer);
 function findAndChangeLikeButtons ()
 {
@@ -17,7 +24,7 @@ function findAndChangeLikeButtons ()
 }
 function applyButtonExtra (button)
 {
-	button.addEventListener ("click", playSoundBackground, false);
+	button.addEventListener ("click", play, false);
 	var spans = button.getElementsByTagName("SPAN");
 	for (var i=0, l=spans.length; i<l; i++)
 	{
@@ -44,7 +51,7 @@ function uiTest ()
 }
 function play ()
 {
-	var iframe = document.createElement();
+	var iframe = document.createElement("IFRAME");
 	iframe.src = chrome.extension.getURL("play.html");
 	iframeContainer.appendChild(iframe);
 }
