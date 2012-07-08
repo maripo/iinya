@@ -1,4 +1,6 @@
 // mew mew mew
+var labelFrom = "いいね";
+var labelTo = "いいニャ";
 var iframeContainer = document.createElement("DIV");
 with (iframeContainer.style)
 {
@@ -56,21 +58,8 @@ function play ()
 	iframeContainer.appendChild(iframe);
 }
 
-chrome.extension.onRequest.addListener
-(
-	function (request, sender, _bgCallback) 
-	{
-		if (!initDone)
-		{
-			initDone = true;
-		}
-		bgCallback = _bgCallback;
-	}
-);
 audios = SoundEffect.getDefaultSoundEffects();
 //uiTest();
-var labelFrom = "いいね";
-var labelTo = "いいニャ";
 chrome.extension.onRequest.addListener
 (
 	function (request, sender, sendResponse) 

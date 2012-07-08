@@ -1,4 +1,4 @@
-chrome.tabs.onUpdated.addListener(tabOnUpdate);
+
 var REGEX_URL = new RegExp("http(|s)://www\\.facebook\\.com($|/)");
 var tabOnUpdate = function(tabId, changeInfo, tab)
 {
@@ -14,3 +14,4 @@ var tabOnUpdate = function(tabId, changeInfo, tab)
 		);
 	}
 }
+chrome.tabs.onUpdated.addListener(tabOnUpdate);
