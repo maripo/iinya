@@ -9,7 +9,7 @@
       "popup": "index.html"
   },
   "options_page":"pref/index.html",
-  "background_page":"background_page.html",
+  "background_page":"background.html",
   "content_scripts" : [
     {
       "matches" : [
