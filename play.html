@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="src/sound_effect.js"></script>
+		<script type="text/javascript" src="src/player.js"></script>
+		<script type="text/javascript" src="src/index.js"></script>
+		<title>Iinya</title>
+	</head>
+	<body onload="playRandom()">
+		<script type="text/javascript">
+		var audios;
+		function playRandom()
+		{
+			if (localStorage[STORAGE_KEY_SOUNDS])
+			{
+				try
+				{
+					all = JSON.parse(localStorage[STORAGE_KEY_SOUNDS]);
+					audios = [];
+					for (var i=0; i<all.length; i++)
+					{
+						var audio = all[i];
+						if (audio.enabled)
+							audios.push(new SoundEffect(audio));
+					}
+				}
+				catch (ex) 
+				{
+					console.log(ex);
+				}
+			}
+			if (!audios || 0==audios.length)
+			{
+				audios = SoundEffect.getDefaultSoundEffects();
+			}
+			playSound();
+		}
+		</script>
+	</body>
+</html>
