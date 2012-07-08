@@ -19,8 +19,8 @@ Player.setMasterVolume = function (value)
 }
 
 var Label = {};
-var LABEL_FROM_DEFAULT = "いいね";
-var LABEL_TO_DEFAULT = "いいニャ";
+var LABEL_FROM_DEFAULT = chrome.i18n.getMessage('labelFromDefault');
+var LABEL_TO_DEFAULT = chrome.i18n.getMessage('labelToDefault');
 Label.getLabelFrom = function ()
 {
 	return localStorage.labelFrom || LABEL_FROM_DEFAULT;

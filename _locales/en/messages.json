@@ -7,5 +7,11 @@
 	},
 	"extDescription": {
 		"message": "Kittens live in Like buttons!"
+	},
+	"labelFromDefault": {
+		"message": "Like"
+	},
+	"labelToDefault": {
+		"message": "Meow"
 	}
 }
