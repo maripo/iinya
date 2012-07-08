@@ -139,6 +139,7 @@ SoundEditor.prototype.getRenameAction = function ()
 	{
 		self.nameLabel.style.display = 'none';
 		self.editSection.style.display = 'block';
+		self.nameEdit.focus();
 	} 
 };
 SoundEditor.prototype.getSaveNameAction = function ()
@@ -149,6 +150,11 @@ SoundEditor.prototype.getSaveNameAction = function ()
 		if (self.nameEdit.value.length<1)
 		{
 			alert("何か入れてください。");
+			return;
+		}
+		if (self.nameEdit.value.length>NAME_LENGTH_LIMIT)
+		{
+			alert("長すぎます。" + NAME_LENGTH_LIMIT + "文字以下にしてください。");
 			return;
 		}
 		self.sound.name = self.nameEdit.value
@@ -216,6 +222,7 @@ function renderList (soundEffects)
 }
 var REGEX_FILE_TYPE_AUDIO = new RegExp("audio\\/.*");
 var SIZE_LIMIT = 1024 * 1024;
+var NAME_LENGTH_LIMIT = 30;
 function readFile (event)
 {
 	var file = event.target.files[0];

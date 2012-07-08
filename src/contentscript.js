@@ -45,11 +45,6 @@ var bgCallback = null;
 var initDone = false;
 function playSoundBackground ()
 {
-	if (!initDone)
-	{
-		initDone = true;
-		window.setInterval(findAndChangeLikeButtons, 2000);
-	}
 	bgCallback({command:"play"});
 ;}
 
@@ -57,9 +52,14 @@ chrome.extension.onRequest.addListener
 (
 	function (request, sender, _bgCallback) 
 	{
+		if (!initDone)
+		{
+			initDone = true;
+			window.setInterval(findAndChangeLikeButtons, 2000);
+		}
 		bgCallback = _bgCallback;
 	}
 );
 audios = SoundEffect.getDefaultSoundEffects();
 findAndChangeLikeButtons();
-uiTest();
+//uiTest();
