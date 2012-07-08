@@ -9,6 +9,7 @@
       "popup": "index.html"
   },
   "options_page":"pref/index.html",
+  "background_page":"background_page.html",
   "content_scripts" : [
     {
       "matches" : [
@@ -26,7 +27,7 @@
       "all_frames" : false
     }
   ],
-  "permissions" : ["unlimitedStorage"]
+  "permissions" : ["background","tabs","unlimitedStorage"]
   ,
   "icons" : {
     "128" : "img/icon128.png",

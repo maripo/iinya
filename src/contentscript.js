@@ -29,7 +29,7 @@ function applyButtonExtra (button)
 	for (var i=0, l=spans.length; i<l; i++)
 	{
 		var span = spans[i];
-		span.innerHTML = span.innerHTML.replace("いいね", "いいニャ");
+		span.innerHTML = span.innerHTML.replace(labelFrom, labelTo);
 	}
 	button.iinyaListenerAdded = true;
 }
@@ -68,6 +68,16 @@ chrome.extension.onRequest.addListener
 	}
 );
 audios = SoundEffect.getDefaultSoundEffects();
-findAndChangeLikeButtons();
 //uiTest();
-window.setInterval(findAndChangeLikeButtons, 2000);
+var labelFrom = "いいね";
+var labelTo = "いいニャ";
+chrome.extension.onRequest.addListener
+(
+	function (request, sender, sendResponse) 
+	{
+		labelFrom = request.labelFrom;
+		labelTo = request.labelTo;
+		findAndChangeLikeButtons();
+		window.setInterval(findAndChangeLikeButtons, 2000);
+	}
+);
