@@ -23,7 +23,7 @@ var LABEL_FROM_DEFAULT = "いいね";
 var LABEL_TO_DEFAULT = "いいニャ";
 Label.getLabelFrom = function ()
 {
-	return localStorage.labelFrom | LABEL_FROM_DEFAULT;
+	return localStorage.labelFrom || LABEL_FROM_DEFAULT;
 };
 Label.setLabelFrom = function (value)
 {
@@ -31,7 +31,7 @@ Label.setLabelFrom = function (value)
 };
 Label.getLabelTo = function ()
 {
-	return localStorage.labelTo | LABEL_TO_DEFAULT;
+	return localStorage.labelTo || LABEL_TO_DEFAULT;
 };
 Label.setLabelTo = function (value)
 {

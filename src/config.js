@@ -304,6 +304,9 @@ function renderListAndSave (soundEffects)
 
 var fileSelector;
 var volumeRange;
+var labelFrom;
+var labelTo;
+var labelSave;
 function initConfig ()
 {
 	fileSelector = document.getElementById('fileSelector');
@@ -312,8 +315,21 @@ function initConfig ()
 	volumeRange = document.getElementById("masterVolume");
 	volumeRange.value = Player.getMasterVolume();
 	volumeRange.addEventListener("change", onVolumeChange, false);
+	labelFrom = document.getElementById("labelFrom");
+	labelTo = document.getElementById("labelTo");
+	labelSave = document.getElementById("labelSave");
+	labelFrom.value = Label.getLabelFrom();
+	labelTo.value = Label.getLabelTo();
+	labelSave.addEventListener("click", saveLabelValues, false);
 }
 
+function saveLabelValues ()
+{
+	// Allow empty string
+	Label.setLabelFrom(labelFrom.value);
+	Label.setLabelTo(labelTo.value);
+	alert("保存しました。");
+}
 function onVolumeChange (sender)
 {
 	Player.setMasterVolume (volumeRange.value);
