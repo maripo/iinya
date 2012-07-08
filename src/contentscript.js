@@ -1,5 +1,6 @@
 // mew mew mew
-
+var iframeContainer = document.createElement("DIV");
+document.body.appendChild(iframeContainer);
 function findAndChangeLikeButtons ()
 {
 	var allButtons = document.getElementsByTagName('BUTTON');
@@ -38,15 +39,15 @@ function uiTest ()
 		zIndex = 9999;
 	}
 	button.value = "Mew";
-	button.addEventListener ("click", playSoundBackground, false);
+	button.addEventListener ("click", play, false);
 	document.body.appendChild(button);
 }
-var bgCallback = null;
-var initDone = false;
-function playSoundBackground ()
+function play ()
 {
-	bgCallback({command:"play"});
-;}
+	var iframe = document.createElement();
+	iframe.src = chrome.extension.getURL("play.html");
+	iframeContainer.appendChild(iframe);
+}
 
 chrome.extension.onRequest.addListener
 (
@@ -55,7 +56,6 @@ chrome.extension.onRequest.addListener
 		if (!initDone)
 		{
 			initDone = true;
-			window.setInterval(findAndChangeLikeButtons, 2000);
 		}
 		bgCallback = _bgCallback;
 	}
@@ -63,3 +63,4 @@ chrome.extension.onRequest.addListener
 audios = SoundEffect.getDefaultSoundEffects();
 findAndChangeLikeButtons();
 //uiTest();
+window.setInterval(findAndChangeLikeButtons, 2000);
