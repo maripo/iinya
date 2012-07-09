@@ -27,3 +27,8 @@
 
 ##できたらいいな
 - 音声の共有
+
+##ライセンス
+![クリエイティブ・コモンズ・ライセンス](https://github.com/maripo/iinya/raw/master/img/roux.jpg)
+
+この作品は[クリエイティブ・コモンズ 表示 - 非営利 - 継承 2.1 日本 ライセンスの下に提供されています。](href="http://creativecommons.org/licenses/by-nc-sa/2.1/jp/)
