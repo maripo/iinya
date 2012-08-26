@@ -334,3 +334,4 @@ function onVolumeChange (sender)
 {
 	Player.setMasterVolume (volumeRange.value);
 }
+window.onload = initConfig; 

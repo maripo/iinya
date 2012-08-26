@@ -31,7 +31,6 @@ SoundEffect.saveAll = function ()
 {
 	console.log(JSON.stringify(SoundEffect.list));
 	localStorage[STORAGE_KEY_SOUNDS] = JSON.stringify(SoundEffect.list);
-	chrome.extension.getBackgroundPage().reload();
 };
 SoundEffect.loadAll = function ()
 {

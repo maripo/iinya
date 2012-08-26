@@ -15,3 +15,4 @@ var tabOnUpdate = function(tabId, changeInfo, tab)
 	}
 }
 chrome.tabs.onUpdated.addListener(tabOnUpdate);
+function hoge (){console.log(999)}
