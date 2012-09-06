@@ -59,7 +59,7 @@ function play ()
 }
 
 audios = SoundEffect.getDefaultSoundEffects();
-//uiTest();
+uiTest();
 chrome.extension.onRequest.addListener
 (
 	function (request, sender, sendResponse) 
