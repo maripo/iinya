@@ -10,29 +10,38 @@ with (iframeContainer.style)
 	opacity = 0;
 }
 document.body.appendChild(iframeContainer);
+
 function findAndChangeLikeButtons ()
 {
-	var allButtons = document.getElementsByTagName('BUTTON');
-	var likeClassRegEx = new RegExp(".*like_link( |$)");
+	var allButtons = document.getElementsByTagName('A');
 	for (var i=0, l=allButtons.length; i<l; i++)
 	{
 		var button = allButtons[i];
-		if (!button.iinyaListenerAdded && button.className && button.className.match(likeClassRegEx))
+		if ((!button.iinyaListenerAdded || button.innerHTML != button.replacedText) && isLikeButton(button))
 		{
 			applyButtonExtra (button);
 		}
 	}
 
 }
+function isLikeButton (button)
+{
+	return (button.innerHTML.indexOf(labelFrom)>=0 && button.id && button.id.indexOf('reactRoot')>=0);
+}
 function applyButtonExtra (button)
 {
 	button.addEventListener ("click", play, false);
 	var spans = button.getElementsByTagName("SPAN");
+	if (spans.length==0)
+	{
+		button.innerHTML = button.innerHTML.replace(labelFrom, labelTo);
+	}
 	for (var i=0, l=spans.length; i<l; i++)
 	{
 		var span = spans[i];
 		span.innerHTML = span.innerHTML.replace(labelFrom, labelTo);
 	}
+	button.replacedText = button.innerHTML;
 	button.iinyaListenerAdded = true;
 }
 
