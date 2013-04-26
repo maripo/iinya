@@ -19,7 +19,9 @@
     {
       "matches" : [
         "http://www.facebook.com/*",
-        "https://www.facebook.com/*"
+        "https://www.facebook.com/*",
+        "https://twitter.com/*",
+        "http://twitter.com/*"
       ],
       "js" : 
       [
