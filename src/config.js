@@ -321,6 +321,8 @@ function initConfig ()
 	labelFrom.value = Label.getLabelFrom();
 	labelTo.value = Label.getLabelTo();
 	labelSave.addEventListener("click", saveLabelValues, false);
+	var rand = Math.floor(Math.random()*7);
+	document.getElementById('random_cat').src = '../img/random_cat/roux' + rand + ".jpg";
 }
 
 function saveLabelValues ()
