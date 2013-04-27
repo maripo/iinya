@@ -17,7 +17,23 @@ Player.setMasterVolume = function (value)
 {
 	localStorage.masterVolume = value;
 }
-
+var TRUE = "true";
+var FALSE = "false";
+var FACEBOOK_ENABLED_DEFAULT = true;
+var TWITTER_ENABLED_DEFAULT = false;
+Player.isFacebookEnabled = function () 
+{
+	return (localStorage.facebookEnabled)?(TRUE==localStorage.facebookEnabled):FACEBOOK_ENABLED_DEFAULT;
+};
+Player.isTwitterEnabled = function () 
+{
+	return (localStorage.twitterEnabled)?(TRUE==localStorage.twitterEnabled):TWITTER_ENABLED_DEFAULT;
+};
+Player.saveSiteConfig = function (option)
+{
+	localStorage.facebookEnabled = (option.facebook)?TRUE:FALSE;
+	localStorage.twitterEnabled = (option.twitter)?TRUE:FALSE;
+}
 var Label = {};
 var LABEL_FROM_DEFAULT = chrome.i18n.getMessage('labelFromDefault');
 var LABEL_TO_DEFAULT = chrome.i18n.getMessage('labelToDefault');
