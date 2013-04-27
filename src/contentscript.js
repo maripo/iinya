@@ -51,7 +51,6 @@ function findAndChangeLikeButtons ()
 		if ((!button.iinyaListenerAdded || button.innerHTML != button.replacedText) && 
 				siteManager.isMeowButton(button))
 		{
-			console.log("meow button found.");
 			applyButtonExtra (button);
 		}
 	}
@@ -103,7 +102,6 @@ chrome.extension.onRequest.addListener
 	function (request, sender, sendResponse) 
 	{
 		siteManager = createSiteManager();
-		console.log("ii-nya sitemanager="+siteManager.name);
 		labelFrom = request.labelFrom;
 		labelTo = request.labelTo;
 		findAndChangeLikeButtons();
