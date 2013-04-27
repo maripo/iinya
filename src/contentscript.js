@@ -1,7 +1,37 @@
+/**
+ * Facebook
+ */
+var FacebookManager = function () {
+	this.name = 'Facebook';
+	this.meowButtonTagName = 'A';
+};
+FacebookManager.prototype.isMeowButton = function (button) {
+	return (button.innerHTML.indexOf(labelFrom)>=0 && button.id && button.id.indexOf('reactRoot')>=0);
+	
+};
+/**
+ * Twitter
+ */
+var TwitterManager = function () {
+	this.name = 'Twitter';
+	this.meowButtonTagName = 'A';
+};
+TwitterManager.BUTTON_REGEX = new RegExp('(^| )favorite($| )');
+TwitterManager.prototype.isMeowButton = function (button) {
+	return (button.className && button.className.match(TwitterManager.BUTTON_REGEX));
+};
+
+function createSiteManager () {
+	if (location.href.match(new RegExp('http(s)?://twitter\.com(/)?')))
+		return new TwitterManager();
+	return new FacebookManager();
+}
+
 // mew mew mew
 var labelFrom = "いいね";
 var labelTo = "いいニャ";
 var iframeContainer = document.createElement("DIV");
+
 with (iframeContainer.style)
 {
 	width = "1px";
@@ -11,22 +41,21 @@ with (iframeContainer.style)
 }
 document.body.appendChild(iframeContainer);
 
+var siteManager = null;
 function findAndChangeLikeButtons ()
 {
-	var allButtons = document.getElementsByTagName('A');
+	var allButtons = document.getElementsByTagName(siteManager.meowButtonTagName);
 	for (var i=0, l=allButtons.length; i<l; i++)
 	{
 		var button = allButtons[i];
-		if ((!button.iinyaListenerAdded || button.innerHTML != button.replacedText) && isLikeButton(button))
+		if ((!button.iinyaListenerAdded || button.innerHTML != button.replacedText) && 
+				siteManager.isMeowButton(button))
 		{
+			console.log("meow button found.");
 			applyButtonExtra (button);
 		}
 	}
 
-}
-function isLikeButton (button)
-{
-	return (button.innerHTML.indexOf(labelFrom)>=0 && button.id && button.id.indexOf('reactRoot')>=0);
 }
 function applyButtonExtra (button)
 {
@@ -73,6 +102,8 @@ chrome.extension.onRequest.addListener
 (
 	function (request, sender, sendResponse) 
 	{
+		siteManager = createSiteManager();
+		console.log("ii-nya sitemanager="+siteManager.name);
 		labelFrom = request.labelFrom;
 		labelTo = request.labelTo;
 		findAndChangeLikeButtons();
