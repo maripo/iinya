@@ -23,7 +23,7 @@
         "https://twitter.com/*",
         "http://twitter.com/*",
         "https://plus.google.com/*",
-        "http://plus.google.com/*",
+        "http://plus.google.com/*"
       ],
       "js" : 
       [

@@ -20,10 +20,23 @@ TwitterManager.BUTTON_REGEX = new RegExp('(^| )favorite($| )');
 TwitterManager.prototype.isMeowButton = function (button) {
 	return (button.className && button.className.match(TwitterManager.BUTTON_REGEX));
 };
+/**
+ * Google+
+ */
+var GoogleplusManager = function () {
+	this.name = 'Google+';
+	this.meowButtonTagName = 'DIV';
+};
+GoogleplusManager.BUTTON_REGEX = new RegExp('(^| )favorite($| )');
+GoogleplusManager.prototype.isMeowButton = function (button) {
+	return (button.className && button.getAttribute("data-tooltip")=="+1 this post");
+};
 
 function createSiteManager () {
 	if (location.href.match(new RegExp('http(s)?://twitter\.com(/)?')))
 		return new TwitterManager();
+	if (location.href.match(new RegExp('http(s)?://plus\.google\.com(/)?')))
+		return new GoogleplusManager();
 	return new FacebookManager();
 }
 
