@@ -1,7 +1,7 @@
  {
   "manifest_version": 2,
   "name" : "__MSG_extTitle__",
-  "version" : "2.5",
+  "version" : "2.5.1",
   "default_locale": "en",
   "description" : "__MSG_extDescription__",
   "browser_action": {
@@ -33,7 +33,7 @@
         "src/contentscript.js"
         ],
       "run_at" : "document_idle",
-      "all_frames" : true
+      "all_frames" : false
     }
   ],
   "permissions" : ["background","tabs","unlimitedStorage"]

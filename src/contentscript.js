@@ -17,7 +17,6 @@ var FacebookWidgetManager = function () {
 	this.meowButtonTagName = 'BUTTON';
 };
 FacebookWidgetManager.prototype.isMeowButton = function (button) {
-	console.log(button.innerHTML);
 	return true;
 	
 };
@@ -126,10 +125,8 @@ audios = SoundEffect.getDefaultSoundEffects();
 //uiTest();
 chrome.runtime.sendMessage(
 		{url: location.href}, function(response) {
-			console.log(location.href + "->" + response.enabled);
 			if (!response.enabled) return;
 			siteManager = createSiteManager();
-			console.log("SiteManager=" + siteManager.name);
 			labelFrom = response.labelFrom;
 			labelTo = response.labelTo;
 			findAndChangeLikeButtons();
