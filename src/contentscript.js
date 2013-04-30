@@ -10,6 +10,18 @@ FacebookManager.prototype.isMeowButton = function (button) {
 	
 };
 /**
+ * Facebook Widgets
+ */
+var FacebookWidgetManager = function () {
+	this.name = 'Facebook Widgets';
+	this.meowButtonTagName = 'BUTTON';
+};
+FacebookWidgetManager.prototype.isMeowButton = function (button) {
+	console.log(button.innerHTML);
+	return true;
+	
+};
+/**
  * Twitter
  */
 var TwitterManager = function () {
@@ -37,6 +49,8 @@ function createSiteManager () {
 		return new TwitterManager();
 	if (location.href.match(new RegExp('http(s)?://plus\.google\.com(/)?')))
 		return new GoogleplusManager();
+	if (location.href.match(new RegExp('http(s)?://www\.facebook\.com/plugins/like\.php')))
+		return new FacebookWidgetManager();
 	return new FacebookManager();
 }
 
@@ -110,14 +124,15 @@ function play ()
 
 audios = SoundEffect.getDefaultSoundEffects();
 //uiTest();
-chrome.extension.onRequest.addListener
-(
-	function (request, sender, sendResponse) 
-	{
-		siteManager = createSiteManager();
-		labelFrom = request.labelFrom;
-		labelTo = request.labelTo;
-		findAndChangeLikeButtons();
-		window.setInterval(findAndChangeLikeButtons, 2000);
+chrome.runtime.sendMessage(
+		{url: location.href}, function(response) {
+			console.log(location.href + "->" + response.enabled);
+			if (!response.enabled) return;
+			siteManager = createSiteManager();
+			console.log("SiteManager=" + siteManager.name);
+			labelFrom = response.labelFrom;
+			labelTo = response.labelTo;
+			findAndChangeLikeButtons();
+			window.setInterval(findAndChangeLikeButtons, 2000);
 	}
 );
