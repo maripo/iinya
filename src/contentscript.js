@@ -123,6 +123,7 @@ function play ()
 
 audios = SoundEffect.getDefaultSoundEffects();
 //uiTest();
+console.log(location.href);
 chrome.runtime.sendMessage(
 		{url: location.href}, function(response) {
 			if (!response.enabled) return;

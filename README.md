@@ -1,18 +1,20 @@
 #いいにゃ
 
-にゃーにゃーにゃー
-にゃーにゃーにゃー
-にゃーにゃーにゃー
-にゃーにゃーにゃー
+A cat mews when you click a "Like" button on Facebook or a "Favorite" star on Twitter.
 
-##声の出演
+You can use both built-in cats' voice files and MP3 files of YOUR CAT's voices!
+
+[Installation](https://chrome.google.com/webstore/detail/ii-nya/jjimmphcchfcenglmkkdnbblddmmgean)
+
+Meow meow meow
+
+##Developer's Cat
 
 ![Roux](https://github.com/maripo/iinya/raw/master/img/roux.jpg)
 
 [Roux](https://www.facebook.com/RouxTheCat)
 
 ##TODO
-- localize index.html
 - localize index.html
 - 音声ファイルごとにボリュームを設定
 - どのサイトでどの音声が発動するか選べるようにする
