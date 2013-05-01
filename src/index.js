@@ -25,6 +25,8 @@ function initIndex ()
 	checkFacebook.addEventListener('change', onSiteConfigChange);
 	checkTwitter.addEventListener('change', onSiteConfigChange);
 	checkGoogleplus.addEventListener('change', onSiteConfigChange);
+	
+	localize();
 }
 function getButtonFunction (i)
 {
