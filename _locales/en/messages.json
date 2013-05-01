@@ -16,5 +16,20 @@
 	},
 	"randomMeow" : {
 		"message": "Meow (random)"
-	}
+	},
+	"meow1" : {"message": "Meow 1"},
+	"meow2" : {"message": "Meow 2"},
+	"meow3" : {"message": "Meow 3"},
+	"meow4" : {"message": "Meow 4"},
+	"meow5" : {"message": "Meow 5"},
+	"meow6" : {"message": "Meow 6"},
+	"meow7" : {"message": "Meow 7"},
+	"meow8" : {"message": "Meow 8"},
+	"roux" : {"message": "Roux (♂)"},
+	"gustav" : {"message": "Gustav (♂)"},
+	"dora" : {"message": "Dora (♀)"},
+	"gabu" : {"message": "Gabu (♀)"},
+	"volume" : {"message": "Volume"},
+	"targetSites" : {"message": "Sites"},
+	"advancedConfig" : {"message": "Config & Custom Voices"}
 }

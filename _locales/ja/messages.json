@@ -16,5 +16,20 @@
 	},
 	"randomMeow" : {
 		"message": "にゃー(ランダム)"
-	}
+	},
+	"meow1" : {"message": "にゃー 1"},
+	"meow2" : {"message": "にゃー 2"},
+	"meow3" : {"message": "にゃー 3"},
+	"meow4" : {"message": "にゃー 4"},
+	"meow5" : {"message": "にゃー 5"},
+	"meow6" : {"message": "にゃー 6"},
+	"meow7" : {"message": "にゃー 7"},
+	"meow8" : {"message": "にゃー 8"},
+	"roux" : {"message": "ルー (♂)"},
+	"gustav" : {"message": "グスタフ (♂)"},
+	"dora" : {"message": "ドーラ (♀)"},
+	"gabu" : {"message": "ガブ (♀)"},
+	"volume" : {"message": "音量"},
+	"targetSites" : {"message": "対象サイト"},
+	"advancedConfig" : {"message": "詳細設定・音声管理"}
 }
