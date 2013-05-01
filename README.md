@@ -1,4 +1,4 @@
-#いいにゃ
+#ii-nya
 
 A cat mews when you click a "Like" button on Facebook or a "Favorite" star on Twitter.
 
