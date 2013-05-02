@@ -5,17 +5,18 @@
 		<script type="text/javascript" src="../src/player.js"></script>
 		<script type="text/javascript" src="../src/sound_effect.js"></script>
 		<script type="text/javascript" src="../src/file_rw.js"></script>
+		<script type="text/javascript" src="../src/i18n.js"></script>
 		<script type="text/javascript" src="../src/config.js"></script>
 		<link rel="stylesheet" type="text/css" href="../style/style.css"/>
 		<title>Iinya</title>
 	</head>
 	<body>
-		<h1>
+		<h1 class="iinya_localize_titlePref">
 			いいニャ 詳細設定
 		</h1>
 		<!-- Volume Settings -->
 		<div class="configSection">
-			<h2>
+			<h2 class="iinya_localize_volume">
 				音量
 			</h2>
 			<div>
@@ -24,16 +25,16 @@
 		</div>
 		<!-- Audio Settings -->
 		<div class="configSection">
-			<h2>音声選択</h2>
-			<p>
+			<h2 class="iinya_localize_voices">音声選択</h2>
+			<p class="iinya_localize_random">
 				チェックを入れたものがランダムで再生されます。
 			</p>
 			<ul id="audio_list">
 			</ul>
-			<h3>ディスク上の音声ファイルを追加</h3>
+			<h3 class="iinya_localize_localFile">ディスク上の音声ファイルを追加</h3>
 			<div style="line-height:32px; font-size:80%;">
 				 <input type="file" id="fileSelector"/>
-				<p>
+				<p class="iinya_localize_fileSizeLimit">
 					(1MB未満)
 				</p>
 				
@@ -41,17 +42,17 @@
 		</div>
 		<!-- Label Settings -->
 		<div class="configSection">
-			<h2>ボタンの文字の置き換え</h2>
+			<h2 class="iinya_localize_replace">ボタンの文字の置き換え</h2>
 			<div>
-				「<input id="labelFrom"/>」
-				を
-				「<input id="labelTo"/>」
-				に変更
-				<input type="button" value="保存" id="labelSave"/>
+				<span class="iinya_localize_replace1">「</span>
+				<input id="labelFrom"/>
+				<span class="iinya_localize_replace2">」を「</span>
+				<input id="labelTo"/>
+				<span class="iinya_localize_replace3">」に変更</span>
+				<input type="button" value="保存" id="labelSave" class="iinya_localize_save"/>
 			</div>
 			<div style="font-size:80%">
-				(例: 「いいね」を「いいニャ」に変更)<br/>
-				空にすると文字を置き換えません。
+				<span class="iinya_localize_example">(例: 「いいね」を「いいニャ」に変更)</span>
 			</div>
 		</div>
 		

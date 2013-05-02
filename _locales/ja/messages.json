@@ -31,5 +31,18 @@
 	"gabu" : {"message": "ガブ (♀)"},
 	"volume" : {"message": "音量"},
 	"targetSites" : {"message": "対象サイト"},
-	"advancedConfig" : {"message": "詳細設定・音声管理"}
+	"advancedConfig" : {"message": "詳細設定・音声管理"},
+	"titlePref" : {"message": "いいニャ 詳細設定"},
+	"localFile" : {"message": "ディスク上の音声ファイルを追加"},
+	"voices" : {"message": "音声選択"},
+	"random" : {"message": "チェックを入れたものがランダムで再生されます。"},
+	"fileSizeLimit" : {"message": "(1MB未満)"},
+	"save" : {"message": "保存"},
+	"replace" : {"message": "ボタンの文字の置き換え"},
+	"replace1" : {"message": "「"},
+	"replace2" : {"message": "」を「"},
+	"replace3" : {"message": "」に変更"},
+	"example" : {"message": "(例: 「いいね」を「いいニャ」に変更)"},
+	"voiceNamePrefix" : {"message": "にゃー"}
+	
 }

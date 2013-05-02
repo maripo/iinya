@@ -31,5 +31,18 @@
 	"gabu" : {"message": "Gabu (♀)"},
 	"volume" : {"message": "Volume"},
 	"targetSites" : {"message": "Sites"},
-	"advancedConfig" : {"message": "Config & Custom Voices"}
+	"advancedConfig" : {"message": "Config & Custom Voices"},
+	"titlePref" : {"message": "Preferences"},
+	"localFile" : {"message": "Use a local file"},
+	"voices" : {"message": "Voices to play"},
+	"random" : {"message": "Checked voices will be played randomly."},
+	"fileSizeLimit" : {"message": "(Maximum file size: 1MB)"},
+	"save" : {"message": "Save"},
+	"replace" : {"message": "Text replacement"},
+	"replace1" : {"message": "Replace \""},
+	"replace2" : {"message": "\" with \""},
+	"replace3" : {"message": "\""},
+	"example" : {"message": "(Example: Replace \"Like\" with \"Meow\")"},
+	"voiceNamePrefix" : {"message": "Meow"}
+	
 }

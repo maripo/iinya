@@ -47,15 +47,16 @@ SoundEffect.importedList = [];
 
 SoundEffect.getDefaultSoundEffects = function ()
 {
+	var meow = chrome.i18n.getMessage("voiceNamePrefix");
 	return [
-		SoundEffect.createBuiltInSoundEffects("にゃー1","audio/nya.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー2","audio/dora.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー3","audio/dora2.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー4","audio/gustav.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー5","audio/gustav2.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー6","audio/gabu0.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー7","audio/gabu1.mp3"),
-		SoundEffect.createBuiltInSoundEffects("にゃー8","audio/gabu2.mp3")
+		SoundEffect.createBuiltInSoundEffects(meow+"1","audio/nya.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"2","audio/dora.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"3","audio/dora2.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"4","audio/gustav.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"5","audio/gustav2.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"6","audio/gabu0.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"7","audio/gabu1.mp3"),
+		SoundEffect.createBuiltInSoundEffects(meow+"8","audio/gabu2.mp3")
 	];
 };
 SoundEffect.createBuiltInSoundEffects = function (name, extensionPath)
