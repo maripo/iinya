@@ -6,7 +6,7 @@ var FacebookManager = function () {
 	this.meowButtonTagName = 'A';
 };
 FacebookManager.prototype.isMeowButton = function (button) {
-	return (button.innerHTML.indexOf(labelFrom)>=0 && button.id && button.id.indexOf('reactRoot')>=0);
+	return (button.className && button.className.indexOf('UFILikeLink')>=0);
 	
 };
 /**
